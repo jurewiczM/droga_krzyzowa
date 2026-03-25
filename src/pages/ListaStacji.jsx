@@ -3,7 +3,7 @@ import Menu from "../Menu";
 export default function ListaStacji({ stacje, onOtworz, darkMode, onToggleDark }) {
   return (
     <div>
-      <div className="header">
+      <div className="header" style={{ justifyContent: "space-between" }}> 
         <div>
           <div className="header-title">Droga Krzyżowa</div>
           <div className="header-sub">14 stacji</div>

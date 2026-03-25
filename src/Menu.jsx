@@ -19,7 +19,7 @@ export default function Menu({ darkMode, onToggleDark }) {
 
       {open && (
         <div className="dropdown">
-          <div className="menu-toggle-row" onClick={onToggleDark}>
+          <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleDark(); }}>
             <div className="menu-item-label">
               <span className="menu-icon">☾</span>
               Tryb ciemny
