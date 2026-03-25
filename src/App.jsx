@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { stacje } from "./stacje";
 import ListaStacji from "./pages/ListaStacji";
