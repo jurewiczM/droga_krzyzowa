@@ -1,3 +1,5 @@
+import Menu from "../components/Menu";
+
 export default function ListaStacji({ stacje, onOtworz }) {
   return (
     <div>
@@ -6,6 +8,7 @@ export default function ListaStacji({ stacje, onOtworz }) {
           <div className="header-title">Droga Krzyżowa</div>
           <div className="header-sub">14 stacji</div>
         </div>
+         <Menu darkMode={darkMode} onToggleDark={onToggleDark} />
       </div>
       <div className="lista">
         {stacje.map((s) => (

@@ -5,13 +5,15 @@ import ListaStacji from "./pages/ListaStacji";
 import WidokStacji from "./pages/WidokStacji";
 import Mapa from "./pages/Mapa";
 import { Analytics } from "@vercel/analytics/react";
-
+import { useState } from "react";
+import Menu from "./components/Menu";
 
 
 export default function App() {
   const [ekran, setEkran] = useState("lista"); // "lista" | "stacja" | "mapa"
   const [aktywnaStacja, setAktywnaStacja] = useState(null);
   const [aktywnaZakladka, setAktywnaZakladka] = useState("lista");
+  const [darkMode, setDarkMode] = useState(false);
 
   function otworz(id) {
     setAktywnaStacja(id);
@@ -28,7 +30,9 @@ export default function App() {
     if (tab === "lista") setEkran("lista");
     if (tab === "mapa") setEkran("mapa");
   }
-
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+  }, [darkMode]);
   return (
     <div>
       {ekran === "lista" && (
