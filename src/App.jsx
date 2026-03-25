@@ -5,7 +5,7 @@ import ListaStacji from "./pages/ListaStacji";
 import WidokStacji from "./pages/WidokStacji";
 import Mapa from "./pages/Mapa";
 import { Analytics } from "@vercel/analytics/react";
-import Menu from "./components/Menu";
+import Menu from "./Menu";
 
 
 export default function App() {
