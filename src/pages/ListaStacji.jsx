@@ -1,6 +1,6 @@
 import Menu from "../Menu";
 
-export default function ListaStacji({ stacje, onOtworz }) {
+export default function ListaStacji({ stacje, onOtworz, darkMode, onToggleDark }) {
   return (
     <div>
       <div className="header">
