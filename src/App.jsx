@@ -39,7 +39,11 @@ export default function App() {
   return (
     <div>
       {ekran === "lista" && (
-        <ListaStacji stacje={stacje} onOtworz={otworz} />
+        <ListaStacji stacje={stacje} 
+          onOtworz={otworz}
+          darkMode={darkMode}
+          onToggleDark={() => setDarkMode(!darkMode)}
+        />
       )}
       {ekran === "stacja" && (
         <WidokStacji
@@ -47,7 +51,6 @@ export default function App() {
           id={aktywnaStacja}
           onWroc={wrocDoListy}
           onZmienStacje={setAktywnaStacja}
-          onToggleDark={() => setDarkMode(!darkMode)}
         />
       )}
       {ekran === "mapa" && <Mapa />}
