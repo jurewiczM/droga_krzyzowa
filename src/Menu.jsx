@@ -41,9 +41,8 @@ export default function Menu({ darkMode, onToggleDark }) {
             <div className="modal-title">O aplikacji</div>
             <div className="modal-body">
               {/* TUTAJ WPISZ SWOJE DANE */}
-              <p>Aplikacja stworzona przez <strong>Imię Nazwisko</strong>.</p>
-              <p>Parafia / organizacja</p>
-              <p>Kontakt: email@example.com</p>
+              <p>Autor:<strong>Maksymilian Jurewicz</strong>.</p>
+              <p>github.com/jurewiczM</p>
             </div>
             <button className="modal-close" onClick={() => setShowInfo(false)}>Zamknij</button>
           </div>

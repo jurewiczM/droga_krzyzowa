@@ -14,6 +14,11 @@ export default function App() {
   const [aktywnaZakladka, setAktywnaZakladka] = useState("lista");
   const [darkMode, setDarkMode] = useState(false);
 
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
+
   function otworz(id) {
     setAktywnaStacja(id);
     setEkran("stacja");
@@ -29,9 +34,8 @@ export default function App() {
     if (tab === "lista") setEkran("lista");
     if (tab === "mapa") setEkran("mapa");
   }
-  useEffect(() => {
-    document.body.classList.toggle("dark", darkMode);
-  }, [darkMode]);
+
+
   return (
     <div>
       {ekran === "lista" && (
@@ -43,6 +47,7 @@ export default function App() {
           id={aktywnaStacja}
           onWroc={wrocDoListy}
           onZmienStacje={setAktywnaStacja}
+          onToggleDark={() => setDarkMode(!darkMode)}
         />
       )}
       {ekran === "mapa" && <Mapa />}
