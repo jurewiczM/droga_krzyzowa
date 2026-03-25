@@ -4,6 +4,9 @@ import { stacje } from "./stacje";
 import ListaStacji from "./pages/ListaStacji";
 import WidokStacji from "./pages/WidokStacji";
 import Mapa from "./pages/Mapa";
+import { Analytics } from "@vercel/analytics/react";
+
+
 
 export default function App() {
   const [ekran, setEkran] = useState("lista"); // "lista" | "stacja" | "mapa"
@@ -59,6 +62,7 @@ export default function App() {
           </button>
         </div>
       )}
+     <Analytics />
     </div>
-  );
+   );
 }
