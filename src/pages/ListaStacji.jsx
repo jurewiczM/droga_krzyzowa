@@ -1,4 +1,4 @@
-import Menu from "../components/Menu";
+import Menu from "../Menu";
 
 export default function ListaStacji({ stacje, onOtworz }) {
   return (
