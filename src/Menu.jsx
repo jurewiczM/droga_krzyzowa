@@ -19,22 +19,29 @@ export default function Menu({ darkMode, onToggleDark, wcagMode,onToggleWcag }) 
 
       {open && (
         <div className="dropdown">
-          <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleDark(); onToggleWcag()}}>
+          <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleDark(); }}>
             <div className="menu-item-label">
-              <span className="menu-icon">☾</span>
-              Tryb ciemny
-              <span className="menu-icon">◐</span>
-              Tryb dostępności
-            </div>
-            <div className={`toggle-track ${darkMode ? "on" : ""}`}>
-              <div className="toggle-thumb" />
-            </div>
+            <span className="menu-icon">☾</span>
+            Tryb ciemny
           </div>
-          <div className="menu-item" onClick={() => { setShowInfo(true); setOpen(false); }}>
-            <span className="menu-icon">ℹ</span>
-            O aplikacji
+          <div className={`toggle-track ${darkMode ? "on" : ""}`}>
+            <div className="toggle-thumb" />
           </div>
-        </div>
+          </div>
+  <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleWcag(); }}>
+    <div className="menu-item-label">
+      <span className="menu-icon">◐</span>
+      Tryb dostępności
+    </div>
+    <div className={`toggle-track ${wcagMode ? "on" : ""}`}>
+      <div className="toggle-thumb" />
+    </div>
+  </div>
+  <div className="menu-item" onClick={() => { setShowInfo(true); setOpen(false); }}>
+    <span className="menu-icon">ℹ</span>
+    O aplikacji
+  </div>
+</div>
       )}
 
       {showInfo && (
