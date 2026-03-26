@@ -1,26 +1,9 @@
-const WSPOLRZEDNE = [
-  { id: 1,  lat: 31.7784, lng: 35.2269 },
-  { id: 2,  lat: 31.7788, lng: 35.2271 },
-  { id: 3,  lat: 31.7792, lng: 35.2268 },
-  { id: 4,  lat: 31.7796, lng: 35.2265 },
-  { id: 5,  lat: 31.7800, lng: 35.2263 },
-  { id: 6,  lat: 31.7804, lng: 35.2261 },
-  { id: 7,  lat: 31.7808, lng: 35.2259 },
-  { id: 8,  lat: 31.7812, lng: 35.2257 },
-  { id: 9,  lat: 31.7816, lng: 35.2256 },
-  { id: 10, lat: 31.7820, lng: 35.2254 },
-  { id: 11, lat: 31.7822, lng: 35.2251 },
-  { id: 12, lat: 31.7824, lng: 35.2248 },
-  { id: 13, lat: 31.7823, lng: 35.2245 },
-  { id: 14, lat: 31.7821, lng: 35.2242 },
-];
 
 export default function Mapa() {
-  const trasa = WSPOLRZEDNE.map((w) => `${w.lat},${w.lng}`).join("/");
-  const googleMapsUrl = `https://www.google.com/maps/dir/${trasa}`;
+  const googleMapsUrl = `https://www.google.pl/maps/dir/Czersk,+89-650/Dąbki/Ostrowite/Mosna,+89-650/Klaskawa,+89-650/Będźmierowice,+89-652/Łubna,+89-650/Malachin,+89-650/Czersk,+89-650/@53.8955141,18.0036953,11.6z/data=!4m71!4m70!1m10!1m1!1s0x470260a308f7d227:0x21d2eff688d2ae92!2m2!1d17.9763976!2d53.7950936!3m4!1m2!1d17.967865!2d53.7542276!3s0x47025e4153448d9d:0x921fe70b17d4599c!1m5!1m1!1s0x47025fb3486dd09b:0x1e796a1aaa11cea2!2m2!1d17.9901717!2d53.7497062!1m5!1m1!1s0x47025feb37bec0fb:0xc8aa1aff4579671!2m2!1d18.0316753!2d53.7503318!1m5!1m1!1s0x47025ff098612023:0x41cfdd9a1ff0539d!2m2!1d18.053055!2d53.7577801!1m5!1m1!1s0x4702600ff6c6493b:0x8dfc47b58680f3d9!2m2!1d18.0549537!2d53.7839888!1m5!1m1!1s0x470260469c80b8dd:0xa31656ccbc5be814!2m2!1d18.0484102!2d53.8058017!1m10!1m1!1s0x470260dc0d45f607:0x71174b08b1cd70b3!2m2!1d17.992504!2d53.816844!3m4!1m2!1d17.9553918!2d53.818963!3s0x4702672e37529f51:0x142cebac8e2df3dc!1m10!1m1!1s0x47026733c6907a41:0x9f4c1723735680ac!2m2!1d17.9563206!2d53.8138882!3m4!1m2!1d17.9707024!2d53.7993295!3s0x470260ba01b1c451:0x84609cccc8c6bb96!1m5!1m1!1s0x470260a308f7d227:0x21d2eff688d2ae92!2m2!1d17.9763976!2d53.7950936!3e2?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D`;
 
-  const centrum = WSPOLRZEDNE[6];
-  const embedUrl = `https://maps.google.com/maps?q=${centrum.lat},${centrum.lng}&z=16&output=embed`;
+
+  const embedUrl = 'https://www.google.com/maps/place/89-650+Czersk/@53.7899676,17.95672,14z/data=!3m1!4b1!4m6!3m5!1s0x470260a308f7d227:0x21d2eff688d2ae92!8m2!3d53.7950936!4d17.9763976!16zL20vMDliMHEx?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D';
 
   return (
     <div className="mapa-container">
