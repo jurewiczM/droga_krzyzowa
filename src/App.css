@@ -219,8 +219,6 @@ body {
 .dark .dots-btn { color: #aaa; }
 
 .dropdown {
-  display: flex;
-  flex-direction: column;
   position: absolute;
   top: 42px;
   right: 0;
@@ -231,6 +229,8 @@ body {
   z-index: 100;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
 }
 .dark .dropdown { background: #1c1c1e; border-color: #333; }
 
