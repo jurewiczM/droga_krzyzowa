@@ -344,7 +344,10 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: left 0.1s;
+  transition: left 0.05s linear, transform 0.1s ease;
+}
+.track-thumb:active {
+  transform: translate(-50%, -50%) scale(1.4);
 }
 .dark .track-thumb { background: #4A9EE0; }
 
