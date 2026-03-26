@@ -334,6 +334,20 @@ body {
 }
 .dark .modal-close { background: #2c2c2e; border-color: #444; color: #f0f0f0; }
 
+.track-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #185FA5;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: left 0.1s;
+}
+.dark .track-thumb { background: #4A9EE0; }
+
+
 body.dark { background: #000; color: #f0f0f0; }
 body.dark .header { background: #1c1c1e; border-color: #2c2c2e; }
 body.dark .lista { background: #000; }
@@ -349,3 +363,23 @@ body.dark .nav-btn.primary { background: #0C447C; border-color: #185FA5; color: 
 body.dark .tabbar { background: #1c1c1e; border-color: #2c2c2e; }
 body.dark .tab { color: #666; }
 body.dark .tab.active { color: #4A9EE0; }
+
+
+body.wcag { background: #fff; color: #000; }
+body.wcag .header { background: #fff; border-bottom: 2px solid #000; }
+body.wcag .header-title { font-size: 20px; color: #000; }
+body.wcag .header-sub { font-size: 14px; color: #000; }
+body.wcag .stacja-row { border-bottom: 1px solid #000; }
+body.wcag .stacja-tytul { font-size: 18px; color: #000; }
+body.wcag .numer-badge { background: #000; color: #fff; font-size: 14px; width: 40px; height: 40px; }
+body.wcag .stacja-tytul-duzy { font-size: 26px; color: #000; }
+body.wcag .stacja-opis { font-size: 18px; color: #000; line-height: 1.8; }
+body.wcag .player { background: #f0f0f0; border: 2px solid #000; }
+body.wcag .player-label { font-size: 14px; color: #000; }
+body.wcag .play-btn { background: #000; color: #fff; width: 52px; height: 52px; font-size: 20px; }
+body.wcag .nav-btn { border: 2px solid #000; font-size: 16px; color: #000; background: #fff; }
+body.wcag .nav-btn.primary { background: #000; color: #fff; border-color: #000; }
+body.wcag .tabbar { border-top: 2px solid #000; }
+body.wcag .tab { font-size: 13px; color: #555; }
+body.wcag .tab.active { color: #000; font-weight: 600; }
+body.wcag .chevron { color: #000; font-size: 22px; }

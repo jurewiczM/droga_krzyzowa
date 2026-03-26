@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function Menu({ darkMode, onToggleDark }) {
+export default function Menu({ darkMode, onToggleDark, wcagMode,onToggleWcag }) {
   const [open, setOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const ref = useRef(null);
@@ -19,10 +19,12 @@ export default function Menu({ darkMode, onToggleDark }) {
 
       {open && (
         <div className="dropdown">
-          <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleDark(); }}>
+          <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleDark(); onToggleWcag()}}>
             <div className="menu-item-label">
               <span className="menu-icon">☾</span>
               Tryb ciemny
+              <span className="menu-icon">◐</span>
+              Tryb dostępności
             </div>
             <div className={`toggle-track ${darkMode ? "on" : ""}`}>
               <div className="toggle-thumb" />

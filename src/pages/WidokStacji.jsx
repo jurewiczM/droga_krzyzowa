@@ -76,8 +76,9 @@ export default function WidokStacji({ stacje, id, onWroc, onZmienStacje }) {
               {gra ? "⏸" : "▶"}
             </button>
             <div className="track-wrapper">
-              <div className="track-bar" onClick={onKliknijTrack}>
+              <div className="track-bar" onClick={onKliknijTrack} style={{ position: "relative" }}>
                 <div className="track-fill" style={{ width: `${postep}%` }} />
+                <div className="track-thumb" style={{ left: `${postep}%` }} />
               </div>
               <div className="czas-row">
                 <span className="czas">{formatCzas(czas.obecny)}</span>

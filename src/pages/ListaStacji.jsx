@@ -1,6 +1,6 @@
 import Menu from "../Menu";
 
-export default function ListaStacji({ stacje, onOtworz, darkMode, onToggleDark }) {
+export default function ListaStacji({ stacje, onOtworz, darkMode, onToggleDark, wcagMode, onToggleWcag }) {
   return (
     <div>
       <div className="header" style={{ justifyContent: "space-between" }}> 
@@ -8,7 +8,7 @@ export default function ListaStacji({ stacje, onOtworz, darkMode, onToggleDark }
           <div className="header-title">Droga Krzyżowa</div>
           <div className="header-sub">14 stacji</div>
         </div>
-         <Menu darkMode={darkMode} onToggleDark={onToggleDark} />
+         <Menu darkMode={darkMode} onToggleDark={onToggleDark}  wcagMode={wcagMode} onToggleWcag={onToggleWcag}/>
       </div>
       <div className="lista">
         {stacje.map((s) => (

@@ -13,10 +13,16 @@ export default function App() {
   const [aktywnaStacja, setAktywnaStacja] = useState(null);
   const [aktywnaZakladka, setAktywnaZakladka] = useState("lista");
   const [darkMode, setDarkMode] = useState(false);
+  const [wcagMode, setWcagMode] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
   }, [darkMode]);
+
+
+useEffect(() => {
+  document.body.classList.toggle("wcag", wcagMode);
+}, [wcagMode]);
 
 
   function otworz(id) {
@@ -43,6 +49,8 @@ export default function App() {
           onOtworz={otworz}
           darkMode={darkMode}
           onToggleDark={() => setDarkMode(!darkMode)}
+          wcagMode = {wcagMode}
+          onToggleWcag = {() => setWcagMode(!wcagMode)}
         />
       )}
       {ekran === "stacja" && (
