@@ -19,24 +19,32 @@ export default function Menu({ darkMode, onToggleDark, wcagMode,onToggleWcag }) 
 
       {open && (
         <div className="dropdown">
-          <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleDark(); }}>
-            <div className="menu-item-label">
-            <span className="menu-icon">☾</span>
-            Tryb ciemny
+          <div className="menu-toggle-row" onClick={(e) => {
+            e.stopPropagation();
+            if (!darkMode) { onToggleDark(); if (wcagMode) onToggleWcag(); }
+            else onToggleDark();
+          }}>
+        <div className="menu-item-label">
+        <span className="menu-icon">☾</span>
+        Tryb ciemny
+        </div>
+        <div className={`toggle-track ${darkMode ? "on" : ""}`}>
+        <div className="toggle-thumb" />
+        </div>
+        </div>
+        <div className="menu-toggle-row" onClick={(e) => {
+          e.stopPropagation();
+          if (!wcagMode) { onToggleWcag(); if (darkMode) onToggleDark(); }
+          else onToggleWcag();
+          }}>
+          <div className="menu-item-label">
+            <span className="menu-icon">◐</span>
+            Tryb dostępności
           </div>
-          <div className={`toggle-track ${darkMode ? "on" : ""}`}>
+          <div className={`toggle-track ${wcagMode ? "on" : ""}`}>
             <div className="toggle-thumb" />
           </div>
           </div>
-  <div className="menu-toggle-row" onClick={(e) => { e.stopPropagation(); onToggleWcag(); }}>
-    <div className="menu-item-label">
-      <span className="menu-icon">◐</span>
-      Tryb dostępności
-    </div>
-    <div className={`toggle-track ${wcagMode ? "on" : ""}`}>
-      <div className="toggle-thumb" />
-    </div>
-  </div>
   <div className="menu-item" onClick={() => { setShowInfo(true); setOpen(false); }}>
     <span className="menu-icon">ℹ</span>
     O aplikacji
@@ -49,7 +57,6 @@ export default function Menu({ darkMode, onToggleDark, wcagMode,onToggleWcag }) 
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-title">O aplikacji</div>
             <div className="modal-body">
-              {/* TUTAJ WPISZ SWOJE DANE */}
               <p>Autor:<strong>Maksymilian Jurewicz</strong>.</p>
               <p>github.com/jurewiczM</p>
             </div>

@@ -6,6 +6,7 @@ export default function WidokStacji({ stacje, id, onWroc, onZmienStacje }) {
   const [gra, setGra] = useState(false);
   const [postep, setPostep] = useState(0);
   const [czas, setCzas] = useState({ obecny: 0, calkowity: 0 });
+  const dragging = useRef(false);
 
   useEffect(() => {
     setGra(false);
@@ -40,13 +41,34 @@ export default function WidokStacji({ stacje, id, onWroc, onZmienStacje }) {
     setCzas({ obecny: a.currentTime, calkowity: a.duration });
   }
 
-  function onKliknijTrack(e) {
-    const a = audioRef.current;
-    if (!a || !a.duration) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    a.currentTime = (x / rect.width) * a.duration;
+  function getPos(e, rect) {
+  const x = e.touches ? e.touches[0].clientX : e.clientX;
+  return Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+}
+
+function onMouseDown(e) {
+  const a = audioRef.current;
+  if (!a || !a.duration) return;
+  dragging.current = true;
+  const rect = e.currentTarget.getBoundingClientRect();
+  a.currentTime = getPos(e, rect) * a.duration;
+
+  function onMove(ev) {
+    if (!dragging.current) return;
+    a.currentTime = getPos(ev, rect) * a.duration;
   }
+  function onUp() {
+    dragging.current = false;
+    window.removeEventListener("mousemove", onMove);
+    window.removeEventListener("mouseup", onUp);
+    window.removeEventListener("touchmove", onMove);
+    window.removeEventListener("touchend", onUp);
+  }
+  window.addEventListener("mousemove", onMove);
+  window.addEventListener("mouseup", onUp);
+  window.addEventListener("touchmove", onMove, { passive: true });
+  window.addEventListener("touchend", onUp);
+}
 
   function przejdz(kierunek) {
     onZmienStacje(id + kierunek);
@@ -76,7 +98,7 @@ export default function WidokStacji({ stacje, id, onWroc, onZmienStacje }) {
               {gra ? "⏸" : "▶"}
             </button>
             <div className="track-wrapper">
-              <div className="track-bar" onClick={onKliknijTrack} style={{ position: "relative" }}>
+              <div className="track-bar" onMouseDown={onMouseDown} onTouchStart={onMouseDown} style={{ position: "relative", cursor: "pointer" }}>
                 <div className="track-fill" style={{ width: `${postep}%` }} />
                 <div className="track-thumb" style={{ left: `${postep}%` }} />
               </div>
