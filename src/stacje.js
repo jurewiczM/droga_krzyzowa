@@ -1,4 +1,10 @@
 export const stacje = [
+    { 
+    id: 0,  
+    numer: "W",    
+    tytul: "Wstęp",          
+    opis: ``
+  },
   { 
     id: 1,  
     numer: "I",    
@@ -159,4 +165,10 @@ Patrzymy na Jezusa złożonego w ciemnym, wykutym w skale. Ogromny głaz zamyka 
 
 Jezu, pogrzeb w swoim grobie mojego dawnego człowieka, moje grzechy i słabości, abym mógł z Tobą powstać do nowego życia.` 
   },
+  { 
+    id: 15,  
+    numer: "Z",    
+    tytul: "Zakończenie",          
+    opis: ``
+  }
 ];
