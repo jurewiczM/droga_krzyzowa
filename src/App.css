@@ -184,7 +184,12 @@ body {
 .nav-btn:disabled { opacity: 0.3; cursor: default; }
 
 /* Mapa */
-.mapa-container { padding-bottom: 60px; }
+.mapa-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 60px;
+}
 .mapa-iframe { width: 100%; height: calc(100vh - 220px); border: none; display: block; }
 .mapa-btn {
   display: block;

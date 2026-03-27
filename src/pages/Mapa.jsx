@@ -1,10 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 
-const GPX_TRASA_A = [
-  [53.794535,17.975884],[53.794541,17.975639],[53.794567,17.975519],[53.794690,17.975428],[53.794873,17.975497],[53.794967,17.975523],[53.795004,17.975043],[53.795066,17.974646],[53.795168,17.974232],[53.795331,17.973716],[53.795184,17.973474],[53.794902,17.973539],[53.794278,17.973334],[53.793596,17.973145],[53.792987,17.972987],[53.792450,17.972855],[53.790249,17.972233],[53.788626,17.971798],[53.788161,17.971276],[53.787614,17.969787],[53.787347,17.966946],[53.787047,17.964357],[53.786172,17.961786],[53.785156,17.959660],[53.784124,17.957220],[53.781568,17.950665],[53.781077,17.949683],
-];
 
-const GOOGLE_URL_A = "https://www.komoot.com/pl-pl/tour/2847845140?share_token=aiE1crpccuRx6OltyH7EGyj86lyvitl7ET9zF4kBtpoIjNIuGM";
+const EMBED_URL_A = "https://www.google.com/maps/embed?pb=!1m58!1m12!1m3!1d..."; // TUTAJ WKLEJ EMBED TRASY A
+const GOOGLE_URL_A = "https://www.google.pl/maps/dir/53.794535,17.975884/..."; // TUTAJ WKLEJ LINK TRASY A
 
 const GOOGLE_URL_B = "https://www.google.pl/maps/dir/Czersk,+89-650/Dąbki/Ostrowite/Mosna,+89-650/Klaskawa,+89-650/Będźmierowice,+89-652/Łubna,+89-650/Malachin,+89-650/Czersk,+89-650/@53.8955141,18.0036953,11.6z/data=!4m71!4m70!1m10!1m1!1s0x470260a308f7d227:0x21d2eff688d2ae92!2m2!1d17.9763976!2d53.7950936!3m4!1m2!1d17.967865!2d53.7542276!3s0x47025e4153448d9d:0x921fe70b17d4599c!1m5!1m1!1s0x47025fb3486dd09b:0x1e796a1aaa11cea2!2m2!1d17.9901717!2d53.7497062!1m5!1m1!1s0x47025feb37bec0fb:0xc8aa1aff4579671!2m2!1d18.0316753!2d53.7503318!1m5!1m1!1s0x47025ff098612023:0x41cfdd9a1ff0539d!2m2!1d18.053055!2d53.7577801!1m5!1m1!1s0x4702600ff6c6493b:0x8dfc47b58680f3d9!2m2!1d18.0549537!2d53.7839888!1m5!1m1!1s0x470260469c80b8dd:0xa31656ccbc5be814!2m2!1d18.0484102!2d53.8058017!1m10!1m1!1s0x470260dc0d45f607:0x71174b08b1cd70b3!2m2!1d17.992504!2d53.816844!3m4!1m2!1d17.9553918!2d53.818963!3s0x4702672e37529f51:0x142cebac8e2df3dc!1m10!1m1!1s0x47026733c6907a41:0x9f4c1723735680ac!2m2!1d17.9563206!2d53.8138882!3m4!1m2!1d17.9707024!2d53.7993295!3s0x470260ba01b1c451:0x84609cccc8c6bb96!1m5!1m1!1s0x470260a308f7d227:0x21d2eff688d2ae92!2m2!1d17.9763976!2d53.7950936!3e2";
 
@@ -62,12 +60,19 @@ export default function Mapa() {
       </div>
 
       {aktywna === "A" ? (
-        <>
-          <div ref={mapRef} style={{ height: "calc(100vh - 220px)", width: "100%" }} />
-          <a className="mapa-btn" href={GOOGLE_URL_A} target="_blank" rel="noreferrer">
-            Otwórz w Komoot
-          </a>
-        </>
+      <>
+        <iframe
+        className="mapa-iframe"
+        title="Trasa 20km"
+        src={EMBED_URL_A}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+      <a className="mapa-btn" href={GOOGLE_URL_A} target="_blank" rel="noreferrer">
+        Otwórz w Google Maps
+      </a>
+  </>
       ) : (
         <>
           <iframe
