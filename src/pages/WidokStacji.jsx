@@ -81,7 +81,9 @@ function onMouseDown(e) {
       <div className="header">
         <button className="header-back" onClick={onWroc}>‹</button>
         <div>
-          <div className="header-title">Stacja {stacja.numer}</div>
+          {stacja.numer !== "W" && stacja.numer !== "Z" && (
+  <div className="stacja-numer-duzy">Stacja {stacja.numer}</div>
+)}
           <div className="header-sub">{stacja.tytul}</div>
         </div>
       </div>
