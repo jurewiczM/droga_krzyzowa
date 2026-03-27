@@ -89,7 +89,9 @@ function onMouseDown(e) {
       </div>
 
       <div className="stacja-body">
-        <div className="stacja-numer-duzy">Stacja {stacja.numer}</div>
+        {stacja.numer !== "W" && stacja.numer !== "Z" && (
+  <div className="stacja-numer-duzy">Stacja {stacja.numer}</div>
+)}
         <div className="stacja-tytul-duzy">{stacja.tytul}</div>
         <div className="stacja-opis">{stacja.opis}</div>
 
